@@ -1,0 +1,27 @@
+<div style="text-align:center; margin-top: 20px;">  
+  <h4>  
+    Asset Manager for the CWRUViewer2
+  </h4>  
+</div>  
+  
+<div class="blobstorage-section">  
+  <table style="margin-top: 20px;">  
+    <tr>  
+      <th class="column1">Uploaded Files</th>  
+      <th class="column2" style="text-align:center;">Download</th>  
+      <th class="column3" style="text-align:center;">Delete</th>  
+    </tr>  
+    <tr *ngFor="let file of files">  
+      <td class="column1">{{file}}</td>  
+      <td class="column2" style="text-align:center;cursor: pointer;" (click)="downloadFile(file)"><i class="fa fa-download"></i></td>  
+      <td class="column3" style="text-align:center;" (click)="deleteFile(file)">  
+        <img alt="Delete Asset" src="../assets/icon-delete.png" />  
+      </td>  
+    </tr>  
+  </table>  
+</div>
+
+<div style = "text-align:center">
+  <i class="fa fa-plus fa-2x" style="cursor: pointer; color: darkslateblue;" (click)="addFile()"></i>  Add new files to Container  
+  <input style="display: none;" type="file" id="fileUpload" #selectedFile [(ngModel)]="fileUpload" (click)="selectedFile.value = null" value="" (change)="handleFileInput($event.target.files)" />    
+ </div>
